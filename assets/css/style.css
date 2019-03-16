@@ -1,0 +1,156 @@
+/* my beautiful custom CSS :) */
+
+body {
+    background: url(".. assets\images\background.jpg");
+}
+
+.wrapper {
+    float: left;
+    margin: 10px;
+}
+
+#CrystalsCollectorbox {
+    background-color: rgb(209,105,32);
+    padding-left: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 380px;
+    float: fixed;
+    margin-bottom: 20px;
+}
+  
+#Crystals-Collector {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    padding-left: 6px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.75em;
+}
+
+#instructionsTextbox {
+    background-color: rgb(251,230,207);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 80px;
+    width: 650px;
+    margin-bottom: 20px;
+}
+
+#instructionsText {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(103,151,96);
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#randomnumber {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(87,60,90);
+    text-align: left;
+    font-weight: bold;
+    font-size: 3.5em;
+}
+
+#randomnumberbox {
+    background-color: rgb(83,201,135);
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 380px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+#wins,
+#losses {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(10, 10, 85);
+    padding-top: 15px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#winsandlossesTextbox {
+    background-color: rgb(57,254,254);
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 125px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+#crystalsbox {
+    width: 600px;
+    margin-bottom: 15px;
+    clear: both;
+}
+
+.crystal-image {
+    width: 80;
+    height: 100px;
+    margin: 5px;
+ }
+
+ #totalscoreText {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#totalscoreTextbox{
+    background-color:rgb(32,162,149);
+    padding-top: 10px;
+    padding-left: 5px;
+    width: 350px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+#totalscoreNum {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    font-size: 3.5em;
+}
+
+#totalscoreNumbox{
+    background-color:rgb(32,162,149);
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 350px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+/* media queries */
+
+@media only screen and (max-width:980px) {
+    .wrapper {
+        max-width: 100%;
+    }
+}
+  
+  
+@media only screen and (max-width: 768px) {
+    .wrapper {
+        max-width: 100%;
+    }
+}  
+  
+  @media only screen and (max-width: 640px){
+    #masthead {
+      /* Positioning */
+      position: static;
+    }
+
+  }
+  
+  
+  
+  
