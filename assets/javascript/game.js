@@ -1,6 +1,8 @@
-var randomnumber = 53;
+var randomnumber = Math.floor(Math.random() * 120) + 19  ;
 
-$("#number-to-guess").text(randomnumber);
+randomnumber = parseInt(randomnumber);
+
+console.log(randomnumber);
 
 var counter = 0;
 
