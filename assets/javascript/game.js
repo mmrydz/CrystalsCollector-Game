@@ -6,13 +6,74 @@ console.log(randomnumber);
 
 var counter = 0;
 
-// Now for the hard part. Creating multiple crystals each with their own unique number value.
+// We begin by expanding our array to include all possible options for all three buttons.
 
-// We begin by expanding our array to include four options.
-var numberOptions = [10, 5, 3, 7];
+var gemoptionsstart = 1;
+var gemoptionsend = 12;
+var gemoptions = [];
+
+
+// We identify all possible options for the buttons and put them in an array named gemoptions:
+for (var i = gemoptionsstart; i <gemoptionsend + 1; i++) {
+    gemoptions.push(i);
+}
+
+console.log(gemoptions);
+
+// We randomly select 4 of these possible options from that array using a for loop utilizing 
+// the same method we used on the random number with a push at the end:
+
+var gemvalues = [];
+var gemvalue;
+
+for (gemvalue = 0; step < 4; gemvalue++) {
+  // Runs 5 times, with values of step 0 through 4.
+  console.log(gemvalue);
+}
+
+for (var i = gemoptionsstart; i <gemoptionsend + 1; i++) {
+  gemoptions.push(i);
+}
+
+// new array to push random item in
+let fourgems = []
+do {
+let item = getRandomItem(gemoptions);
+fourgems.push(item);
+
+// update the original array and remove the recently pushed item
+
+fourgems.splice(fourgems.indexOf(item), 1);
+count++;
+} while(count < n);
+
+console.log(gemoptions);
+console.log(fourgems);
+
+var item = items[Math.floor(Math.random()*items.length)];
+
+var randomnumber1 = Math.floor(Math.random() * gemoptionsend) + gemoptionsstart  ;
+randomnumber1 = parseInt(randomnumber1);
+console.log(randomnumber1);
+
+var randomnumber2 = Math.floor(Math.random() * gemoptionsend) + gemoptionsstart  ;
+randomnumber2 = parseInt(randomnumber2);
+console.log(randomnumber2);
+
+var randomnumber3 = Math.floor(Math.random() * gemoptionsend) + gemoptionsstart  ;
+randomnumber3 = parseInt(randomnumber3);
+console.log(randomnumber3);
+
+var randomnumber4 = Math.floor(Math.random() * gemoptionsend) + gemoptionsstart  ;
+randomnumber4 = parseInt(randomnumber4);
+console.log(randomnumber4);
+
+// We assign each of these numbers to an image.
+
+
 
 // Next we create a for loop to create crystals for every numberOption.
-for (var i = 0; i < numberOptions.length; i++) {
+for (var i = 0; i < gemoptions.length; i++) {
 
   // For each iteration, we will create an imageCrystal
   var imageCrystal = $("<img>");

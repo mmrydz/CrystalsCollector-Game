@@ -2,7 +2,6 @@
 
 body {
     background: url("../images/background.jpg");
-    background-repeat;
 }
 
 .wrapper {
@@ -61,7 +60,7 @@ body {
     padding-left: 5px;
     width: 380px;
     height: 200px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #wins,
@@ -80,7 +79,7 @@ body {
     padding-left: 5px;
     width: 125px;
     height: 200px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #crystalsbox {
@@ -105,7 +104,6 @@ body {
 
 #totalscoreTextbox{
     background-color:rgb(32,162,149);
-    padding-top: 10px;
     padding-left: 5px;
     width: 350px;
     height: 50px;
