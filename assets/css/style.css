@@ -1,7 +1,8 @@
 /* my beautiful custom CSS :) */
 
 body {
-    background: url(".. assets\images\background.jpg");
+    background: url("../images/background.jpg");
+    background-repeat;
 }
 
 .wrapper {
