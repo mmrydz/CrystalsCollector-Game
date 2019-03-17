@@ -63,17 +63,6 @@ $( document ).ready(function() {
   // Step 5: We've now established all of the randome numbers we need.  Now we have to
   // assign our gem image buttons their values. Then we can set up the on-click events.
 
-  // Step 4: We select the first four numbers in the array as the values for our four gems.
-  // We do it this way so that we have four unique numbers with no repeats.
-  // for (var i = 0; i < 4; i++) {
-  //   var imageCrystal = $("<img>");
-  //   imageCrystal.addClass("crystal-image");
-  //   imageCrystal.attr("src", url(".../images/bluecrystal.jpg") + i + url("./images/greencrystal.jpg") + i + url("./images/redcrystal.jpg") + i + url("./images/bluecrystal.jpg"));
-  //   imageCrystal.attr("data-crystalvalue", fourgems[i]);
-  //   $("#crystals").append(imageCrystal);
-  // }
-
-
 
   // Step 3: We assign each of the gem values to a gem image button:
 
@@ -89,7 +78,7 @@ $( document ).ready(function() {
       imageCrystal.addClass("crystal-image");
 
     // Each imageCrystal will be given a src link to the crystal image
-      imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
+      imageCrystal.attr("src", '../images/' + i + '.jpg');
 
     // Each imageCrystal will be given a data attribute called data-crystalValue.
     // This data attribute will be set equal to the array value.
