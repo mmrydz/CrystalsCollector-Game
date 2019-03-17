@@ -1,6 +1,18 @@
 $( document ).ready(function() {
   console.log( "ready!" );
   
+  // First we'll set our totalscoreNum, wins and losses to 0, our desire to play to "true", and 
+  // we reflect this upon refresh.  This will come into play in the on-click event.
+  var totalscoreNum = 0;
+  var wins = 0;
+  var losses = 0;
+
+// We push these values to the html.
+
+  $("#totalscoreNum").text(totalscoreNum);
+  $("#wins").text("Wins: " + wins);
+  $("#losses").text(" Losses: " + losses);
+  
   // With the format arranged with html and the styling set by css, we then add the dynamic functionality with javascript.
 
   // Step 1: We start by generating a random number from 19 to 120 (per instructions)
@@ -61,13 +73,8 @@ $( document ).ready(function() {
   console.log(fourgems);
   
   // Step 5: We've now established all of the randome numbers we need.  Now we have to
-  // assign our gem image buttons their values. Then we can set up the on-click events.
+  // assign our gem image buttons their values. We'll do that with a for loop.
 
-
-  // Step 3: We assign each of the gem values to a gem image button:
-
-
-  // Next we create a for loop to create crystals for every value in fourgems:
     for (var i = 0; i < fourgems.length; i++) {
 
     // For each iteration, we will create an imageCrystal
@@ -88,8 +95,12 @@ $( document ).ready(function() {
     // in the crystalsbox as defined in the html.
       $("#crystals").append(imageCrystal);
   }
+    
+  // It all looks good. Crystals are in the right spots.
 
-  // This time, our click event applies to every single crystal on the page. Not just one.
+  // Step 6: Now we're ready to set up our on-click event!
+  // Our click event applies to every crystal on the page.
+
   $(".crystal-image").on("click", function() {
 
     // Determining the crystal's value requires us to extract the value from the data attribute.
@@ -99,20 +110,37 @@ $( document ).ready(function() {
 
     var crystalValue = ($(this).attr("data-crystalvalue"));
     crystalValue = parseInt(crystalValue);
-    // We then add the crystalValue to the user's "counter" which is a global variable.
-    // Every click, from every crystal adds to the global counter.
-    counter += crystalValue;
 
-    // All of the same game win-lose logic applies. So the rest remains unchanged.
-    alert("New score: " + counter);
+    // We then add the crystalValue to the user's totalscoreNum which is a global variable. We set it = 0 at the top of our script.
+    // Every click, from every crystal adds to the global totalscoreNum. If the totalscoreNum === randomnumber, then 
+    // the player wins and the # of wins increases by 1.  If the totalscoreNum > randomnumber, player loses and
+    // the # of wins increases by 1. Win or loss, the randomnumber and crystalValues are re-generated, 
+    // and the totalscoreNum is reset to zero. This requires looping through steps 3, 4, and 5.
 
-    if (counter === targetNumber) {
-      alert("You win!");
+    totalscoreNum += crystalValue;
+
+    $("#totalscoreNum").text(totalscoreNum);
+    
+    if (totalscoreNum === randomnumber) {
+      alert ("Congratulations!");
+      wins = wins + 1;
+      var randomnumber = Math.floor(Math.random() * 120) + 19  ;  
+      randomnumber = parseInt(randomnumber);
+      totalscoreNum = 0;
+      }
+
+    else if (totalscoreNum > randomnumber) {
+      alert ("So sorry!");
+      losses = losses + 1;
+      var randomnumber = Math.floor(Math.random() * 120) + 19  ;  
+      randomnumber = parseInt(randomnumber);
+      totalscoreNum = 0;
     }
 
-    else if (counter >= targetNumber) {
-      alert("You lose!!");
-    }
+    console.log(crystalValue);
+    console.log(totalscoreNum);
+    console.log(wins);
+    console.log(losses);
 
   });
 });
