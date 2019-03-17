@@ -120,21 +120,13 @@ $( document ).ready(function() {
     totalscoreNum += crystalValue;
 
     $("#totalscoreNum").text(totalscoreNum);
-    
+
     if (totalscoreNum === randomnumber) {
-      alert ("Congratulations!");
       wins = wins + 1;
-      var randomnumber = Math.floor(Math.random() * 120) + 19  ;  
-      randomnumber = parseInt(randomnumber);
-      totalscoreNum = 0;
       }
 
     else if (totalscoreNum > randomnumber) {
-      alert ("So sorry!");
       losses = losses + 1;
-      var randomnumber = Math.floor(Math.random() * 120) + 19  ;  
-      randomnumber = parseInt(randomnumber);
-      totalscoreNum = 0;
     }
 
     console.log(crystalValue);
