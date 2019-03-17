@@ -78,7 +78,7 @@ $( document ).ready(function() {
       imageCrystal.addClass("crystal-image");
 
     // Each imageCrystal will be given a src link to the crystal image
-      imageCrystal.attr("src", '../images/' + i + '.jpg');
+      imageCrystal.attr("src","./assets/images/" + i + ".jpg");
 
     // Each imageCrystal will be given a data attribute called data-crystalValue.
     // This data attribute will be set equal to the array value.
