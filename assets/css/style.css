@@ -63,8 +63,8 @@ body {
     margin-bottom: 15px;
 }
 
-#wins,
-#losses {
+#wins-text,
+#losses-text {
     font-family: 'Times New Roman', Times, serif;
     color: rgb(10, 10, 85);
     padding-top: 15px;
