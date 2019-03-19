@@ -55,6 +55,23 @@ $( document ).ready(function() {
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
     
+    // Replace the random numbers on playagain (specified in on-click event):
+    function deleteRandomNums() {
+      randomnumber = [];
+      fourgems = [];
+    }
+  
+    function replaceRandomNums() {
+      randomnumber.push(Math.floor(Math.random() * 120) + 19);
+      $("#randomnumber").text(randomnumber);
+      fourgems.push((Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ));
+      console.log("random number: " + randomnumber);
+      console.log("four gems: " + fourgems);
+      console.log("Wins: " + game.wins);
+      console.log("Losses: " + game.losses);
+      console.log("------------------------------");  
+    }
+
   // Assign the gem image buttons their values. We'll do that with a for loop:
     for (var i = 0; i < fourgems.length; i++) {
 
@@ -76,23 +93,6 @@ $( document ).ready(function() {
     // in the crystalsbox as defined in the html.
       $("#crystals").append(imageCrystal);
       }
-
-    // Replace the random numbers on playagain (specified in on-click event):
-    function deleteRandomNums() {
-      randomnumber = [];
-      fourgems = [];
-    }
-  
-    function replaceRandomNums() {
-      randomnumber.push(Math.floor(Math.random() * 120) + 19);
-      $("#randomnumber").text(randomnumber);
-      fourgems.push((Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ));
-      console.log("random number: " + randomnumber);
-      console.log("four gems: " + fourgems);
-      console.log("Wins: " + game.wins);
-      console.log("Losses: " + game.losses);
-      console.log("------------------------------");  
-    }
 
   // Set up the on-click event to add points to the total score with each click:
   $(".crystal-image").on("click", function() {
@@ -131,6 +131,9 @@ $( document ).ready(function() {
       deleteRandomNums();
       replaceRandomNums();
   }
+
+  winsText.textContent = "wins: " + game.wins;
+  lossesText.textContent = "losses: " + game.losses;
 
   });
 });
