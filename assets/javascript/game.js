@@ -140,7 +140,7 @@ $( document ).ready(function() {
 
     if (game.totalscoreNum === randomnumber) {
       game.winner();
-      $("#alert-lose").text("You win!");
+      $("#alert-win").text("You win!");
       game.playagain();
       deleteRandomNums();
       replaceRandomNums();
