@@ -45,7 +45,7 @@ $( document ).ready(function() {
     console.log("------------------------------");  
   
   // Push all relevent current values to the html: 
-    $("#randomnumber").text(randomnumber),
+    $("#randomnumber").text(randomnumber);
     $("#totalscoreNum").text(game.totalscoreNum);
     $("#wins").text(game.wins);
     $("#losses").text(game.losses);
@@ -69,7 +69,29 @@ $( document ).ready(function() {
       console.log("four gems: " + fourgems);
       console.log("Wins: " + game.wins);
       console.log("Losses: " + game.losses);
-      console.log("------------------------------");  
+      console.log("------------------------------");
+      $("#crystals").empty();  
+      for (var i = 0; i < fourgems.length; i++) {
+
+        // For each iteration, we will create an imageCrystal
+          var imageCrystal = $("<img>");
+    
+        // First each crystal will be given the class ".crystal-image".
+        // This will allow the CSS to take effect.
+          imageCrystal.addClass("crystal-image");
+    
+        // Each imageCrystal will be given a src link to the crystal image
+          imageCrystal.attr("src","./assets/images/" + i + ".jpg");
+
+        // Each imageCrystal will be given a data attribute called data-crystalValue.
+        // This data attribute will be set equal to the array value.
+          imageCrystal.attr("data-crystalvalue", fourgems[i]);
+          console.log(fourgems[i])
+    
+        // Lastly, each crystal image (with all it classes and attributes) will get added
+        // in the crystalsbox as defined in the html.
+          $("#crystals").append(imageCrystal);
+          }
     }
 
   // Assign the gem image buttons their values. We'll do that with a for loop:
@@ -88,6 +110,7 @@ $( document ).ready(function() {
     // Each imageCrystal will be given a data attribute called data-crystalValue.
     // This data attribute will be set equal to the array value.
       imageCrystal.attr("data-crystalvalue", fourgems[i]);
+      console.log(fourgems[i])
 
     // Lastly, each crystal image (with all it classes and attributes) will get added
     // in the crystalsbox as defined in the html.
@@ -95,8 +118,7 @@ $( document ).ready(function() {
       }
 
   // Set up the on-click event to add points to the total score with each click:
-  $(".crystal-image").on("click", function() {
-
+  $("body").on("click",".crystal-image", function() {
     // Determining the crystal's value requires us to extract the value from the data attribute.
     // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
     // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
