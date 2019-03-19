@@ -1,14 +1,12 @@
-// THINGS TO DO:
-// MAKE THE GAME REGENERATE RANDOM NUMBER AND GEM VALUES ON PLAYAGAIN (use a reset function)
-// DISPLAY MESSAGE ON WINS/LOSSES BOX "YOU LOSE" OR "YOU WIN" ON THOSE CONDITIONS (use https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp)
-
+// *** Can't figure out how to update the images' data values on "play again" even though I am successfully generating
+// new values ***
 
 $( document ).ready(function() {
   console.log( "ready!" );
     
   // With the format arranged with html and the styling set by css, we then add the dynamic functionality with javascript.
 
-   // Step 1: Let's set up our game var.  
+   // Set up game var to instruct events in the on-click:  
 
   var game = {
     totalscoreNum: 0,
@@ -16,76 +14,49 @@ $( document ).ready(function() {
     losses: 0,
     gameon: true,
     playagain: true,
-    randomnumber: [Math.floor(Math.random() * 120) + 19] ,
-    fourgems: [(Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 )],
 
     winner: function() {
       this.wins = (this.wins + 1);
       this.totalscoreNum = 0;
-      randomnumber = [Math.floor(Math.random() * 120) + 19];
-      fourgems = [];
-      fourgems = [(Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 )];
-      this.fourgems = parseInt(this.fourgems);
       this.gameon = false;
-      console.log(this.randomnumber);
-      console.log(this.fourgems);
     }, 
 
     gameover: function() {
       this.losses = (this.losses + 1);
       this.totalscoreNum = 0;
-      randomnumber = [Math.floor(Math.random() * 120) + 19];
-      fourgems = [];
-      fourgems = [(Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 )];
-      this.fourgems = parseInt(this.fourgems);
       this.gameon = false;
-      console.log(this.randomnumber);
-      console.log(this.fourgems);
     },
 
     playagain: function() {
       this.totalscoreNum = 0;
-      this.randomnumber = Math.floor(Math.random() * 120) + 19;
-      this.randomnumber = parseInt(this.randomnumber);
-      $("#randomnumber").text(this.randomnumber);
-      fourgems = [];
-      fourgems = [(Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 )];
-      this.fourgems = parseInt(this.fourgems);
       this.gameon = true;
-      console.log(this.randomnumber);
-      console.log(this.fourgems);
     }
   };
 
-  // Let's console.log our data so we can debug as needed:
+  // Set all random numbers and console.log all stats:
 
-    console.log("random number " + game.randomnumber);
-    console.log("four gems: " +  game.fourgems);
-
-  // We'll rewrite our stats during gametime:
-
-  function reWriteStats() {
+    var randomnumber = [Math.floor(Math.random() * 120) + 19] ;
+    var fourgems = [(Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 )];
+  
+    console.log("random number: " + randomnumber);
+    console.log("four gems: " + fourgems);
     console.log("Wins: " + game.wins);
     console.log("Losses: " + game.losses);
-    console.log("Score so far: " + game.totalscoreNum);
-    console.log("------------------------------");
-  }
+    console.log("------------------------------");  
   
-  // We push all relevent current values to the html:
-  
-    $("#randomnumber").text(game.randomnumber),
+  // Push all relevent current values to the html: 
+    $("#randomnumber").text(randomnumber),
     $("#totalscoreNum").text(game.totalscoreNum);
     $("#wins").text(game.wins);
     $("#losses").text(game.losses);
-  
-  // We'll spell out how we'll convey wins and losses to the html as required:
+
+  // Spell out how to convey wins and losses to the html as required:
 
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
     
-  // We assign our gem image buttons their values. We'll do that with a for loop.
-
-    for (var i = 0; i < game.fourgems.length; i++) {
+  // Assign the gem image buttons their values. We'll do that with a for loop:
+    for (var i = 0; i < fourgems.length; i++) {
 
     // For each iteration, we will create an imageCrystal
       var imageCrystal = $("<img>");
@@ -99,15 +70,31 @@ $( document ).ready(function() {
 
     // Each imageCrystal will be given a data attribute called data-crystalValue.
     // This data attribute will be set equal to the array value.
-      imageCrystal.attr("data-crystalvalue", game.fourgems[i]);
+      imageCrystal.attr("data-crystalvalue", fourgems[i]);
 
     // Lastly, each crystal image (with all it classes and attributes) will get added
     // in the crystalsbox as defined in the html.
       $("#crystals").append(imageCrystal);
-  }
+      }
 
-  // Step 6: Now we're ready to set up our on-click event! This will affect every crystal image button.
+    // Replace the random numbers on playagain (specified in on-click event):
+    function deleteRandomNums() {
+      randomnumber = [];
+      fourgems = [];
+    }
+  
+    function replaceRandomNums() {
+      randomnumber.push(Math.floor(Math.random() * 120) + 19);
+      $("#randomnumber").text(randomnumber);
+      fourgems.push((Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ), (Math.floor(Math.random() * 12) + 1 ));
+      console.log("random number: " + randomnumber);
+      console.log("four gems: " + fourgems);
+      console.log("Wins: " + game.wins);
+      console.log("Losses: " + game.losses);
+      console.log("------------------------------");  
+    }
 
+  // Set up the on-click event to add points to the total score with each click:
   $(".crystal-image").on("click", function() {
 
     // Determining the crystal's value requires us to extract the value from the data attribute.
@@ -129,32 +116,21 @@ $( document ).ready(function() {
     // If the totalscoreNum === randomnumber, then the player wins and the # of wins increases by 1.  
     // If the totalscoreNum > randomnumber, player loses and the # of losses increases by 1.
 
-    if (game.totalscoreNum === game.randomnumber) {
+    if (game.totalscoreNum === randomnumber) {
       game.winner();
       $("#alert-lose").text("You win!");
-      reWriteStats();
       game.playagain();
+      deleteRandomNums();
+      replaceRandomNums();
       }
 
-    else if (game.totalscoreNum > game.randomnumber) {
+    else if (game.totalscoreNum > randomnumber) {
       game.gameover();
       $("#alert-lose").text("You lose!");
-      reWriteStats();
       game.playagain();
+      deleteRandomNums();
+      replaceRandomNums();
   }
-
-  winsText.textContent = "wins: " + game.wins;
-  lossesText.textContent = "losses: " + game.losses;
-
-  
-
-
-
-  
-    // Win or loss, the randomnumber and crystalValues are re-generated, and the totalscoreNum is reset to zero. 
-    // These functions were written in steps 1 and 2.
-
-
 
   });
 });
